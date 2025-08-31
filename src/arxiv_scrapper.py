@@ -5,16 +5,18 @@ import configparser
 
 
 ##Structure:
-# main.py: This acts as the orchestrator. It initiates the process by calling the functions from arxiv_scraper.py in a specific order.
-#
-# load_config: This function is called first to get all the necessary settings, such as the search query and the number of results, from your settings.ini file.
-#
-# fetch_recent_papers: This is the core scraping function. It takes the query from the configuration and retrieves the raw paper data from the arXiv API.
-#
-# filter_papers_by_timeframe: The raw list of papers is then passed to this function, which refines the list by keeping only the most recent entries, as per the logic you've already defined.
-#
-# paper_ranker.py: This is the crucial next step in your pipeline. The filter_papers_by_timeframe function's output, a list of filtered papers, becomes the input for the paper_ranker.py module. Its job will be to analyze these papers and select the most promising one for the next stage of your podcast generation process.
+"""
+main.py: This acts as the orchestrator. It initiates the process by calling the functions from arxiv_scraper.py in a specific order.
 
+load_config: This function is called first to get all the necessary settings, such as the search query and the number of results, from your settings.ini file.
+
+fetch_recent_papers: This is the core scraping function. It takes the query from the configuration and retrieves the raw paper data from the arXiv API.
+
+filter_papers_by_timeframe: The raw list of papers is then passed to this function, which refines the list by keeping only the most recent entries, as per the logic you've already defined.
+
+paper_ranker.py: This is the crucial next step in your pipeline. The filter_papers_by_timeframe function's output, a list of filtered papers, becomes the input for the paper_ranker.py module. Its job will be to analyze these papers and select the most promising one for the next stage of your podcast generation process.
+
+"""
 
 
 def load_config(config_file):
